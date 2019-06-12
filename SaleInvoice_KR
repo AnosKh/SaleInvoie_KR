@@ -7,7 +7,7 @@
 
 <div class="row" ng-print-preview="PrintPreview"> <!-- style="page-break-inside: avoid;" Edited not effective-->
     @*Default Printing*@
-    <div class="print">
+    <div class="print"> <!-- style="page-break-inside: avoid;" Edited not effective-->
         <table>
             <thead>
                 <tr>
@@ -96,7 +96,8 @@
                 </tr>
                 <tr>
                     <!-- <td colspan="10"> -->  <!-- Edited -->
-                        <table border="0" style="width: 98%;" class="item">
+
+                        <table border="0" style="width: 98%;" class="item"> <!-- page-break  --> <!-- not effective -->
                             <!-- <thead> --> 
                             <tbody> <!-- to make head not auto to next page -->
                                 <tr border="1" class="heading print-l">
@@ -132,8 +133,8 @@
                                 </tr>
                              </tbody>
                             <!-- </thead> -->
-
-                            <tbody>
+							<!-- <div class="pagebreak"> -->
+                            <tbody> <!-- page-break not effective -->
                                 <tr ng-repeat="row in model.Items" style="border-bottom:solid 1px">
                                     <td align="center" style="border:1px solid black;">
                                         <table>
@@ -255,9 +256,9 @@
                                         </table>
                                     </td>
                                 </tr>
-
-                                <tr style="border:none; ">
-
+							<!-- <div class="pagebreak"> -->
+                                <tr style="border:none;"> <!-- class="page-break not effective -->
+									<!-- <div class="pagebreak">  -->
                                     <td rowspan="5" valign="top" colspan="3" class="text-left" style="border:none; font-size:12px; padding-top: 5px" width:400px;>
                                         <p><strong>ចំនាំ:</strong> រាល់អតិថិជនដែលជំពាក់ សូមធ្វើការទូទាត់បុងពីរសបា្ដហ៍ម្ដង
 											   នឹងទូទាត់បុននេះ ឲ្យដាច់ក្នុងរយៈពេលមួយខែ</p> 
@@ -274,9 +275,10 @@
                                     <td colspan="1" align="right" style="border:1px solid;">
                                         {{model.DiscountPercentage}} &nbsp;&nbsp;
                                     </td>
+                                <!-- </div> -->
                                 </tr>
 
-                                <tr style="font-size:12px; border:1px solid; ">
+                                <tr style="font-size:12px; border:1px solid; " class="pagebreak"> <!-- class="page-break" not effective -->
                                     <td colspan="2" align="right" style="border:1px solid;">
                                         បញ្ចុះតំលៃ / Discount &nbsp;&nbsp;
                                     </td>
@@ -323,21 +325,25 @@
                                         {{model.TotalUSD | number:2}}&nbsp;&nbsp;
                                     </td>
                                 </tr>
+                            <!-- </div> -->
                             </tbody>
+                        <!-- </div> --> <!-- not effective -->
                         </table>
                     <!-- </td> --> <!-- Edited -->
                 </tr>
             </tbody>
-
-            <tbody class="footer_print">
-                <tr></tr>
-                <tr></tr>
+        </table>
+        
+        <table>
+		<tbody class="footer_print">
+                
+                
                 <tr></tr>
 
                 <tr>
-                    <td colspan="4" width="500px">
+                    <td colspan="4" width="300px">
                         
-                        <br />
+                       
                         <br />
 
                         <span style="">អតិថិជន</span>
@@ -346,7 +352,7 @@
                     <td colspan="4" width="400px">
                        
                  
-                        <br />
+                      
                         <br />
                         <span style="">អ្នកដឹកជញ្ចូន</span>
                        
@@ -355,14 +361,14 @@
                     <td colspan="4" width="400px">
                         
                 
-                        <br />
+                        
                         <br />
                         <span style="">អ្នកផ្ទៀងផ្ទាត់</span>
 
 
                     </td>
                     <td colspan="3" width="400px" align="left">
-                        <br />
+                        
                         <br />
                         <br />
                         <br />
@@ -370,11 +376,52 @@
                         <span style="">{{model.phone}}</span>
                     </td>
                 </tr>
-            </tbody>
+        </tbody>
         </table>
+
+<!-- ************************************************************************************************* -->
+                        <!-- <table>
+                            <tbody> to make head not auto to next page
+                                <tr border="1" class="heading print-l">
+                                    <th >
+                                        អតិថិជន
+                                    </th>
+                                    <th >
+                                        អ្នកដឹកជញ្ចូន
+                                    </th>
+                                    <th style="width:250px; text-align:center ;padding:5px;   border:1px solid black; background-color: rgb(60, 106, 134) !important; color:#FFF !important">
+                                        រាយឈ្មោះទំនិញ <br />
+                                        Description
+                                    </th>
+                        
+                                    <th style="width: 45px;  text-align:center ;padding:5px;  border:1px solid black; background-color: rgb(60, 106, 134) !important; color:#FFF !important">
+                                        ចំនួន <br />
+                                        Quantity
+                                    </th>
+                                    <th style="width:90px; text-align:center ;padding:5px; border:1px solid black;   background-color:rgb(60, 106, 134) !important; color:#FFF !important">
+                                        ឯកត្តា <br />
+                                        Unit
+                                    </th>
+                        
+                                    <th style="width: 90px; text-align:center ;padding:5px;  border:1px solid black;  background-color:rgb(60, 106, 134) !important; color:#FFF !important">
+                                        តម្លៃរាយ <br />
+                                        UnitPrice
+                                    </th>
+                        
+                                    <th style="width: 90px; text-align:right ;padding:5px;  border:1px solid black; background-color:rgb(60, 106, 134) !important; color:#FFF !important">
+                                        តម្លៃសរុប <br />
+                                        Amount
+                                    </th>
+                                </tr>
+                             </tbody>
+                        </table> -->
+<!-- ************************************************************************************************* -->
+        
     </div>
 </div>
 <style type="text/css">
+	/*table tbody { page-break-inside:auto }
+    tr td    { page-break-inside:avoid; page-break-after:auto }*/ /*Add*/
     .print-l {
         background-color: darkgray !important;
         color: #FFF !important;
@@ -388,6 +435,7 @@
         color: rgb(0, 126, 255)!important;
 
     }
+    /*.page-break { display: block;} *//*not effective!*/
     /*.borderround {
         background: rgb(60, 106, 134) !important;
     }*/
@@ -398,6 +446,9 @@
         font-size: 13px;
         font-weight: 900;
     }
+  	/* table {page-break-inside: auto;} add
+  
+  	tr{page-break-inside: avoid;} add */
 
     td {
     }
@@ -416,8 +467,10 @@
     @@media print {
         .footer_print {
             position: fixed;
+            
         }
-        
+
+       
 
         pre {
             border: none;
@@ -426,9 +479,38 @@
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
             display: none !important;
         }
-        /*div { page-break-inside: avoid; }*/ /*add it*/ 
+       /* div { page-break-inside: avoid; } *//*add it*/ 
+    
     }
+    /*@@media print{*/
+    	/*table { page-break-before:always; }*/
+    	/*......................................*/
+    	/*tr { page-break-before:always; }
+    	td { page-break-before:always; }*/
+    	/*......................................*/
+    	/*tr {
+    		display: table-row-group;
+  			page-break-inside:avoid; 
+  			page-break-after:auto;
+			}*/
+		/*......................................*/
+		/*table { page-break-inside:auto }
+	    div   { page-break-inside:avoid; }*/
+	    /*div 	  {display: block;} */
+	  /*tbody { page-break-inside:avoid; page-break-after:auto }
+	  tr    { page-break-inside:avoid; page-break-after:auto }
+	  td    { page-break-inside:avoid; page-break-after:auto }
+	  p    { page-break-inside:avoid; page-break-after:auto }*/
 
+	/*}*/
+    /*.pagebreak{
+    page-break-after: always;
+    page-break-inside: avoid;}
+*/
+	/*@@page :right{
+		margin-bottom: 1cm;}
+	@@page :left{
+		margin-bottom: 1cm;}*/ /*not effective*/
     /*@@page :left {
         margin-left: 0cm;
         margin-top: 0cm;
@@ -440,4 +522,12 @@
         margin-top: 0cm;
         margin-right: 1cm;
     }*/
+    /*table {
+    page-break-after:avoid;}
+
+    @@media print {
+   		table {
+	        page-break-after:avoid;}
+	}
+*/ /*not effective*/
 </style>
